@@ -23,11 +23,13 @@ jobs:
       - name: compiler list versions
         shell: cmd
         run: |
+          cd /d "%USERPROFILE%\Downloads" &&^
           PortableBuildTools.exe list 
           
       - name: compiler set up
         shell: cmd
         run: |
+          cd /d "%USERPROFILE%\Downloads" &&^
           PortableBuildTools.exe accept_license msvc=14.41.17.11 sdk=26100 target=x64 host=x64 path="%USERPROFILE%\Downloads\BuildTools"
         
       - uses: actions/checkout@v4
