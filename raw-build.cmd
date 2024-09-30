@@ -1,5 +1,5 @@
 @echo off
-set BUILD_TOOLS_ROOT=%USERPROFILE%\Downloads\MY_PORTABLE_MSVC
+set BUILD_TOOLS_ROOT=%USERPROFILE%\Downloads\BuildTools
 set WindowsSDKDir=%BUILD_TOOLS_ROOT%\Windows Kits\10
 set VCToolsInstallDir=%BUILD_TOOLS_ROOT%\VC\Tools\MSVC\14.41.34120
 set WindowsSDKVersion=10.0.26100.0
