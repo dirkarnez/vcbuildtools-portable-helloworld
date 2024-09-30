@@ -1,0 +1,37 @@
+name: cpp-cmake-mingw-prebuilt-release-actions-workflow
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    # tags:
+    #   - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    #   - 'c*'
+      
+permissions:
+    contents: write
+    
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: download compiler
+        shell: cmd
+        run: |
+          cd /d "%USERPROFILE%\Downloads" &&^
+          curl https://github.com/Data-Oriented-House/PortableBuildTools/releases/download/v2.6/PortableBuildTools.exe -L --output PortableBuildTools.exe &&^
+          dir
+          
+      - name: compiler list versions
+        shell: cmd
+        run: |
+          PortableBuildTools.exe list 
+          
+      - name: compiler set up
+        shell: cmd
+        run: |
+          PortableBuildTools.exe accept_license msvc=14.41.17.11 sdk=26100 target=x64 host=x64 path="%USERPROFILE%\Downloads\BuildTools"
+        
+      - uses: actions/checkout@v4
+
+      
+
+      
